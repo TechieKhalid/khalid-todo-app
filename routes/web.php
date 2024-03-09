@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodosController;
 use Illuminate\Support\Facades\Blade;
@@ -38,5 +39,7 @@ Route::get('/todos/{id}', [TodosController::class, 'show'])->middleware(['auth']
 Route::delete('/todos/:id', [TodosController::class, 'delete'])->middleware(['auth'])->name('delete');
 
 Route::get('/dashboard', [TodosController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+Route::get('send-mail', [MailController::class, 'index']);
 
 require __DIR__.'/auth.php';
